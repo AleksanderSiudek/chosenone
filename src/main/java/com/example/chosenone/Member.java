@@ -7,8 +7,7 @@ public class Member {
     private final String imieNazwisko;
 
     public Member(String id, String imieNazwisko) {
-        // TODO: walidacja jak w MediaItem - znasz już wzorzec:
-        // ify na górze (null/isBlank), przypisania na dole
+       
         if (id == null || id.isBlank()) {
             throw new IllegalArgumentException("Id cannot be empty or null");
         }
@@ -40,6 +39,5 @@ public class Member {
     public int hashCode(){
         return Objects.hash(id);
     }
-    // equals/hashCode po id (klucz biznesowy) - dokładnie ta sama zasada
-    // co isbn w MediaItem
+   
 }
