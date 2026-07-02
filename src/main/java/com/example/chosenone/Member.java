@@ -1,5 +1,7 @@
 package com.example.chosenone;
 
+import java.util.Objects;
+
 public class Member {
     private final String id; // np. numer lokalu albo UUID
     private final String imieNazwisko;
@@ -17,14 +19,7 @@ public class Member {
         this.imieNazwisko = imieNazwisko;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((imieNazwisko == null) ? 0 : imieNazwisko.hashCode());
-        return result;
-    }
+ 
 
     public String getId() {
         return id;
@@ -35,27 +30,16 @@ public class Member {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Member other = (Member) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (imieNazwisko == null) {
-            if (other.imieNazwisko != null)
-                return false;
-        } else if (!imieNazwisko.equals(other.imieNazwisko))
-            return false;
-        return true;
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        var member = (Member) o;
+        return Objects.equals(id, member.id);
     }
-
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
+    }
     // equals/hashCode po id (klucz biznesowy) - dokładnie ta sama zasada
     // co isbn w MediaItem
 }
