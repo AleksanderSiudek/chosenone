@@ -1,0 +1,26 @@
+{
+	"name": "chosenone (Java 25)",
+	"image": "mcr.microsoft.com/devcontainers/base:noble",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "25",
+			"installMaven": false,
+			"installGradle": false
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-spring-boot",
+				"vscjava.vscode-spring-initializr",
+				"vscjava.vscode-spring-boot-dashboard"
+			],
+			"settings": {
+				"java.configuration.updateBuildConfiguration": "automatic"
+			}
+		}
+	},
+	"forwardPorts": [8080],
+	"postCreateCommand": "./mvnw -q -ntp dependency:resolve"
+}
