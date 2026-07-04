@@ -24,7 +24,7 @@ public class BalanceService {
             List<Charge> charges,
             List<Payment> payments,
             LocalDate asOf) {
-        // TODO: jedna linijka - użyj balance(...) i compareTo(BigDecimal.ZERO)
+        // TODO: one line - use balance(...) and compareTo(BigDecimal.ZERO)
         balance(memberId, charges, payments, asOf).compareTo(BigDecimal.ZERO);
         return false;
     }
