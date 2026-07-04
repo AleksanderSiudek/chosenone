@@ -7,10 +7,13 @@
 
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
-			"version": "25",
+			"version": "25.0",
 			"jdkDistro": "librca",
 			"installMaven": "true",
 			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.13"
 		}
 	},
 
@@ -19,6 +22,20 @@
 	],
 
 	"postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.ssh && chmod 700 /home/vscode/.ssh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.vscode-pull-request-github",
+				"github.vscode-github-actions",
+				"vmware.vscode-boot-dev-pack",
+				"vscjava.vscode-java-pack",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"matangover.mypy",
+				"ms-python.black-formatter"
+			]
+		}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
