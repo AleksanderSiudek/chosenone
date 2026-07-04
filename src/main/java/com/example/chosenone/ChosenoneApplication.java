@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ChosenoneApplication {
 
 	public static void main(String[] args) {
-		var service = new BalanceService();
+		var service = new MembershipAccountService();
 
 		var charges = List.of(
 				new Charge(1L, new BigDecimal("10.00"), LocalDate.of(2026, 7, 3), "rent 07/2026"),
