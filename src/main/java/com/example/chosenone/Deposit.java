@@ -3,8 +3,8 @@ package com.example.chosenone;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record Payment(Long idOfMember, BigDecimal amount, LocalDate date) {
-    public Payment {
+public record Deposit(Long idOfMember, BigDecimal amount, LocalDate date) {
+    public Deposit {
         if (idOfMember == null || idOfMember < 0) {
             throw new IllegalArgumentException("Id of member cannot be null");
         }
