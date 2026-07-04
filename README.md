@@ -15,3 +15,7 @@ Projekt Spring Boot z pipeline CI uruchamianym przy kazdym pushu oraz dla pull r
 ```bash
 ./mvnw -DskipTests clean package
 ```
+
+## Documentation
+
+- [Business Requirements v1](docs/business-requirements-v1.md)
