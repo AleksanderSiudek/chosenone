@@ -14,6 +14,12 @@
 		}
 	},
 
+	"mounts": [
+		"source=chosenone-ssh,target=/home/vscode/.ssh,type=volume"
+	],
+
+	"postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.ssh && chmod 700 /home/vscode/.ssh",
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
