@@ -3,27 +3,27 @@ package com.example.chosenone;
 import java.util.Objects;
 
 public class Member {
-    private final Long id; // np. numer lokalu albo UUID
-    private final String imieNazwisko;
+    private final Long id; // e.g. apartment number or UUID
+    private final String fullName;
 
-    public Member(Long id, String imieNazwisko) {
+    public Member(Long id, String fullName) {
 
         if (id == null || id < 0) {
             throw new IllegalArgumentException("Id cannot be empty or null");
         }
-        if (imieNazwisko == null || imieNazwisko.isBlank()) {
-            throw new IllegalArgumentException("NameAndUsername cannot be empty or null");
+        if (fullName == null || fullName.isBlank()) {
+            throw new IllegalArgumentException("Full name cannot be empty or null");
         }
         this.id = id;
-        this.imieNazwisko = imieNazwisko;
+        this.fullName = fullName;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getImieNazwisko() {
-        return imieNazwisko;
+    public String getFullName() {
+        return fullName;
     }
 
     @Override
