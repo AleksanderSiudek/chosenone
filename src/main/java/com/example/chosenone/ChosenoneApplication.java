@@ -27,5 +27,6 @@ public class ChosenoneApplication {
 		System.out.println("Member 1 settled: " + service.isSettled(1L, charges, payments, checkDay)); // true
 		System.out.println("Member 2 balance: " + service.balance(2L, charges, payments, checkDay)); // expected: -3.00
 		System.out.println("Member 2 settled: " + service.isSettled(2L, charges, payments, checkDay)); // false
+
 	}
 }
