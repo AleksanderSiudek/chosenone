@@ -9,7 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MemberShipAccountServiceTest {
-    private final MembershipAccountService service = new MembershipAccountService();
+    private final MembershipAccountServiceInterface service = new MembershipAccountService();
 
     private final List<Charge> charges = List.of(
             new Charge(1L, new BigDecimal("10.00"), LocalDate.of(2026, 7, 3), "payment 7/2026"),
@@ -47,7 +47,7 @@ public class MemberShipAccountServiceTest {
     void balanceIsNegativeAfterUnderpayment() {
         var result = service.balance(2L, charges, payments, asOf);
 
-        assertThat(result).isEqualByComparingTo(new BigDecimal("-3.00"));
+        assertThat(result).isEqualByComparingTo("-3.00");
     }
 
     @Test
@@ -55,14 +55,12 @@ public class MemberShipAccountServiceTest {
         var result = service.debtors(charges, payments, asOf);
 
         assertThat(result).containsExactly(2L);
-
     }
 
     @Test
     void totalDebtSumsAllNegativeBalances() {
-
         var result = service.totalDebt(charges, payments, asOf);
 
-        assertThat(result).isEqualByComparingTo(new BigDecimal("-3.00"));
+        assertThat(result).isEqualByComparingTo("-3.00");
     }
 }

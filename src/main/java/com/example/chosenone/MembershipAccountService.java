@@ -5,8 +5,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-public class MembershipAccountService {
+public class MembershipAccountService implements MembershipAccountServiceInterface {
 
+    @Override
     public BigDecimal balance(Long memberId,
             List<Charge> charges,
             List<Payment> payments,
@@ -25,6 +26,7 @@ public class MembershipAccountService {
         return totalPayment.subtract(totalCharge);
     }
 
+    @Override
     public boolean isSettled(Long memberId,
             List<Charge> charges,
             List<Payment> payments,
@@ -32,6 +34,7 @@ public class MembershipAccountService {
         return balance(memberId, charges, payments, asOf).compareTo(BigDecimal.ZERO) >= 0;
     }
 
+    @Override
     public List<Long> debtors(List<Charge> charges, List<Payment> payments, LocalDate asOf) {
 
         List<Long> debtorsId = charges.stream().map(charge -> charge.idOfMember()).distinct()
@@ -41,14 +44,13 @@ public class MembershipAccountService {
         return debtorsId;
     }
 
+    @Override
     public BigDecimal totalDebt(List<Charge> charges, List<Payment> payments, LocalDate asOf) {
         List<Long> debtorIds = debtors(charges, payments, asOf);
 
-        BigDecimal sum = BigDecimal.ZERO;
-        for (Long memberId : debtorIds) {
-            BigDecimal saldo = balance(memberId, charges, payments, asOf);
-            sum = sum.add(saldo);
-        }
+        var sum = debtorIds.stream().map(memberId -> balance(memberId, charges, payments, asOf)).reduce(BigDecimal.ZERO,
+                BigDecimal::add);
+
         return sum;
     }
 }
