@@ -1,21 +1,31 @@
-# chosenone
+# Dues Tracker
 
 [![CI](https://github.com/AleksanderSiudek/chosenone/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AleksanderSiudek/chosenone/actions/workflows/ci.yml)
 
-Projekt Spring Boot z pipeline CI uruchamianym przy kazdym pushu oraz dla pull requestow do `main`.
+A learning-driven backend application for tracking membership dues, payments
+and balances — e.g. for a housing community or a sports coach managing
+who has paid and who still owes money.
 
-## Uruchomienie lokalne
+## What it does (current state)
+(...bez zmian...)
 
-```bash
+## Tech stack
+(...bez zmian, możesz dopisać: - GitHub Actions (CI)...)
+
+## Running locally
+
 ./mvnw spring-boot:run
-```
 
-## Build lokalny
+## Building
 
-```bash
 ./mvnw -DskipTests clean package
-```
 
 ## Documentation
 
 - [Business Requirements v1](docs/business-requirements-v1.md)
+
+## Roadmap
+(...bez zmian...)
+
+## Why this project
+(...bez zmian...)
